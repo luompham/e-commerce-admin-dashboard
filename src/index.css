@@ -62,4 +62,33 @@ body {
 
 main {
   overflow-y: scroll;
+  background-color: transparent !important;
+  height: 85vh;
+}
+
+main::-webkit-scrollbar {
+  width: 0px;
+}
+
+.ant-layout-header h5 {
+  line-height: 30px;
+  font-size: 0.88rem;
+}
+
+.ant-layout-header p {
+  line-height: 20px;
+  font-size: 0.81rem;
+}
+
+.ant-layout-header div .badge {
+  top: 16px;
+  right: -6px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
