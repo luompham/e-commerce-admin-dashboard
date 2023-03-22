@@ -13,7 +13,7 @@ import {
   AiOutlineShoppingCart,
   AiOutlineBgColors
 } from 'react-icons/ai';
-import { Outlet } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import { FaClipboardList, FaBloggerB } from 'react-icons/fa';
 import { SiBrandfolder } from 'react-icons/si';
 import { BiCategoryAlt } from 'react-icons/bi';
@@ -164,7 +164,9 @@ const MainLayout = () => {
               <IoIosNotifications className='fs-4' />
               <span className='badge bg-warning rounded-circle p-1 position-absolute'>3</span>
             </div>
-            <div className='d-flex gap-3 align-items-center'>
+            <div
+              className='d-flex gap-3 align-items-center dropdown'
+            >
               <div>
                 <img
                   width={40}
@@ -172,9 +174,25 @@ const MainLayout = () => {
                   src="https://zpsocial-f40-org.zadn.vn/588f9861b7765b280267.jpg"
                   alt="avatar" />
               </div>
-              <div className='d-flex flex-column align-content-center'>
+              <div
+                className='d-flex flex-column align-content-center'
+                role="button"
+                id="dropdownMenuLink"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
                 <h5 className='text-dark mb-0'>Ivan Pham</h5>
                 <p className='mb-0'>luompham95@gmail.com</p>
+              </div>
+              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <ul>
+                  <li>
+                    <Link className="dropdown-item py-1 mb-1" style={{ height: 'auto', lineHeight: '20px' }} to="/">Profile</Link>
+                  </li>
+                  <li>
+                    <Link className="dropdown-item py-1 mb-1" style={{ height: 'auto', lineHeight: '20px' }} to="/">Signout</Link>
+                  </li>
+                </ul>
               </div>
             </div>
           </div>
