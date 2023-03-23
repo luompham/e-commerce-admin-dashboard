@@ -71,3 +71,7 @@ body {
   font-family: 'Roboto', sans-serif !important;
   color: var(--color-828599);
 }
+
+.avatar-dropdown ul {
+  list-style-type: none !important;
+}

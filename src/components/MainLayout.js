@@ -184,12 +184,12 @@ const MainLayout = () => {
                 <h5 className='text-dark mb-0'>Ivan Pham</h5>
                 <p className='mb-0'>luompham95@gmail.com</p>
               </div>
-              <div className="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <ul>
-                  <li>
+              <div className="dropdown-menu avatar-dropdown" aria-labelledby="dropdownMenuLink">
+                <ul className='mb-0 ps-0'>
+                  <li className=''>
                     <Link className="dropdown-item py-1 mb-1" style={{ height: 'auto', lineHeight: '20px' }} to="/">Profile</Link>
                   </li>
-                  <li>
+                  <li className=''>
                     <Link className="dropdown-item py-1 mb-1" style={{ height: 'auto', lineHeight: '20px' }} to="/">Signout</Link>
                   </li>
                 </ul>
