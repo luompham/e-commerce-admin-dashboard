@@ -1,8 +1,10 @@
-import React from 'react';
+import { React, useEffect } from 'react';
 import { Table } from 'antd';
 import { CiEdit } from 'react-icons/ci';
 import { AiFillDelete } from 'react-icons/ai';
-
+import { useDispatch, useSelector } from 'react-redux';
+import { getProducts } from '../features/product/productSlice';
+import { Link } from 'react-router-dom';
 
 
 const columns = [
@@ -11,28 +13,64 @@ const columns = [
     dataIndex: 'key',
   },
   {
-    title: 'Name',
-    dataIndex: 'name',
+    title: 'Title',
+    dataIndex: 'title',
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.title.length - b.title.length,
   },
   {
-    title: 'Product',
-    dataIndex: 'product',
+    title: 'Brand',
+    dataIndex: 'brand',
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.brand.length - b.brand.length,
   },
   {
-    title: 'Status',
-    dataIndex: 'status',
+    title: 'Category',
+    dataIndex: 'category',
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.category.length - b.category.length,
+  },
+  {
+    title: 'Color',
+    dataIndex: 'color',
+  },
+  {
+    title: 'Price',
+    dataIndex: 'price',
+    defaultSortOrder: 'descend',
+    sorter: (a, b) => a.price - b.price,
+  },
+  {
+    title: 'Action',
+    dataIndex: 'action',
   },
 ];
-const data1 = [];
-for (let i = 0; i < 46; i++) {
-  data1.push({
-    key: i,
-    name: `Edward King ${i}`,
-    product: 32,
-    status: `London, Park Lane no. ${i}`,
-  });
-}
+
 const ProductList = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getProducts());
+  }, []);
+  const productState = useSelector((state) => state.product.products);
+  const productStateLength = productState.length;
+  const data1 = [];
+  for (let i = 0; i < productStateLength; i++) {
+    data1.push({
+      key: i + 1,
+      title: productState[i].title,
+      brand: productState[i].brand,
+      category: productState[i].category,
+      color: productState[i].color,
+      price: `$ ${productState[i].price}`,
+      action: (
+        <>
+          <Link className='fs-4 text-danger' to='/'><CiEdit /></Link>
+          <Link className='ms-3 fs-4 text-danger' to='/'><AiFillDelete /></Link>
+        </>
+      ),
+    });
+  }
+  console.log(productState)
   return (
     <>
       <div>

@@ -75,3 +75,8 @@ body {
 .avatar-dropdown ul {
   list-style-type: none !important;
 }
+
+.error {
+  color: red;
+  font-size: 0.75rem;
+}
