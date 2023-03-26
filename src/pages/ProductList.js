@@ -70,7 +70,6 @@ const ProductList = () => {
       ),
     });
   }
-  console.log(productState)
   return (
     <>
       <div>
